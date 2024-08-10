@@ -1,65 +1,62 @@
-# hocon-tools README
+# HOCON Syntax Highlighting for Visual Studio Code
 
-This is the README for your extension "hocon-tools". After writing up a brief description, we recommend including the following sections.
+This extension provides syntax highlighting support for HOCON (Human-Optimized Config Object Notation) files in Visual Studio Code. HOCON is a JSON superset used for configuration files that is designed to be more human-friendly, allowing for more flexible syntax, comments, and includes.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Syntax Highlighting**: Provides robust syntax highlighting for HOCON files, including:
+  - Keys and values, with support for both quoted and unquoted keys.
+  - Comments using `//` or `#`.
+  - Arrays and objects, including flexible comma rules.
+  - Support for HOCON-specific features like include statements.
+  - Highlighting for valid and invalid syntax patterns.
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+You can install this extension directly from the Visual Studio Code Marketplace:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. Open Visual Studio Code.
+2. Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window.
+3. Search for "HOCON Syntax Highlighting".
+4. Click **Install** to add the extension to your editor.
 
-## Requirements
+Alternatively, you can download the extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/).
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Usage
 
-## Extension Settings
+Once the extension is installed, it will automatically recognize files with the `.conf` extension as HOCON files and apply syntax highlighting. You can also manually select "HOCON" as the language mode for any open file by clicking on the language mode indicator in the bottom-right corner of the editor.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Example
 
-For example:
+Here’s a sample HOCON file to see the syntax highlighting in action:
 
-This extension contributes the following settings:
+```hocon
+// This is a HOCON file
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+include "other.conf"
 
-## Known Issues
+root {
+    key1 = "value1"
+    key2 {
+        subkey1 = 123
+        subkey2 = true
+    }
+    array = [
+        1,
+        2,
+        3
+    ]
+}
+```
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## Limitations
 
-## Release Notes
+- Currently, this extension only supports syntax highlighting. Advanced features like code completion, validation, and formatting are not yet implemented.
 
-Users appreciate release notes as you update your extension.
+## Contributing
 
-### 1.0.0
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/mattheworford/hocon-tools).
 
-Initial release of ...
+## License
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This extension is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
