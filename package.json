@@ -1,0 +1,25 @@
+{
+  "name": "hocon-tools",
+  "displayName": "HOCON Tools",
+  "description": "Tools for working with HOCON files",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "hocon",
+      "aliases": ["HOCON", "hocon"],
+      "extensions": [".conf"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "hocon",
+      "scopeName": "source.hocon",
+      "path": "./syntaxes/hocon.tmLanguage.json"
+    }]
+  }
+}
