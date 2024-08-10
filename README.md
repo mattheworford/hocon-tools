@@ -1,4 +1,4 @@
-# HOCON Syntax Highlighting for Visual Studio Code
+# HOCON Tools for Visual Studio Code
 
 This extension provides syntax highlighting support for HOCON (Human-Optimized Config Object Notation) files in Visual Studio Code. HOCON is a JSON superset used for configuration files that is designed to be more human-friendly, allowing for more flexible syntax, comments, and includes.
 
