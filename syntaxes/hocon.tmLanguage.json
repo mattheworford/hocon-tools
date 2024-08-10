@@ -1,162 +1,265 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "HOCON",
-	"scopeName": "source.hocon",
-	"patterns": [
-		{
-			"include": "#comments"
-		},
-		{
-			"include": "#key-value"
-		},
-		{
-			"include": "#objects"
-		},
-		{
-			"include": "#arrays"
-		},
-		{
-			"include": "#booleans"
-		},
-		{
-			"include": "#numbers"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"comments": {
-			"patterns": [
-				{
-					"name": "comment.line.double-slash.hocon",
-					"match": "//.*"
-				},
-				{
-					"name": "comment.line.number-sign.hocon",
-					"match": "#.*"
-				}
-			]
-		},
-		"key-value": {
-			"patterns": [
-				{
-					"name": "keyword.other.key.hocon",
-					"match": "^\\s*([\\w.-]+)\\s*(?=(=|:|\\{))"
-				},
-				{
-					"name": "punctuation.separator.key-value.hocon",
-					"match": "(=|:)\\s*(?=\\S)"
-				},
-				{
-					"name": "punctuation.separator.key-value.omitted.hocon",
-					"match": "(?<=\\w)\\s*(?=\\{)"
-				},
-				{
-					"include": "#strings"
-				},
-				{
-					"name": "string.unquoted.hocon",
-					"match": "\\b[a-zA-Z_][\\w.-]*\\b"
-				}
-			]
-		},
-		"objects": {
-			"patterns": [
-				{
-					"name": "punctuation.definition.object.begin.hocon",
-					"match": "\\{"
-				},
-				{
-					"name": "punctuation.definition.object.end.hocon",
-					"match": "\\}"
-				},
-				{
-					"name": "meta.object.hocon",
-					"begin": "\\{",
-					"end": "\\}",
-					"patterns": [
-						{
-							"include": "#key-value"
-						},
-						{
-							"include": "#numbers"
-						},
-						{
-							"include": "#booleans"
-						},
-						{
-							"include": "#strings"
-						}
-					]
-				}
-			]
-		},
-		"arrays": {
-			"patterns": [
-				{
-					"name": "punctuation.definition.array.begin.hocon",
-					"match": "\\["
-				},
-				{
-					"name": "punctuation.definition.array.end.hocon",
-					"match": "\\]"
-				},
-				{
-					"name": "meta.array.hocon",
-					"begin": "\\[",
-					"end": "\\]",
-					"patterns": [
-						{
-							"include": "#key-value"
-						},
-						{
-							"include": "#numbers"
-						},
-						{
-							"include": "#booleans"
-						},
-						{
-							"include": "#strings"
-						}
-					]
-				}
-			]
-		},
-		"booleans": {
-			"patterns": [
-				{
-					"name": "constant.language.boolean.true.hocon",
-					"match": "\\b(true|on|yes)\\b"
-				},
-				{
-					"name": "constant.language.boolean.false.hocon",
-					"match": "\\b(false|off|no)\\b"
-				}
-			]
-		},
-		"numbers": {
-			"patterns": [
-				{
-					"name": "constant.numeric.integer.hocon",
-					"match": "\\b\\d+\\b"
-				},
-				{
-					"name": "constant.numeric.float.hocon",
-					"match": "\\b\\d+\\.\\d+\\b"
-				}
-			]
-		},
-		"strings": {
-			"name": "string.quoted.double.hocon",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.hocon",
-					"match": "\\\\."
-				}
-			]
-		}
+"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+"name": "HOCON",
+"scopeName": "source.hocon",
+"patterns": [
+	{
+		"include": "#comments"
+	},
+	{
+		"include": "#key-value"
+	},
+	{
+		"include": "#objects"
+	},
+	{
+		"include": "#arrays"
+	},
+	{
+		"include": "#booleans"
+	},
+	{
+		"include": "#numbers"
+	},
+	{
+		"include": "#strings"
+	},
+	{
+		"include": "#multi-line-strings"
+	},
+	{
+		"include": "#substitutions"
+	},
+	{
+		"include": "#path-expressions"
+	},
+	{
+		"include": "#includes"
+	},
+	{
+		"include": "#errors"
 	}
+],
+"repository": {
+	"comments": {
+		"patterns": [
+			{
+				"name": "comment.line.double-slash.hocon",
+				"match": "//.*"
+			},
+			{
+				"name": "comment.line.number-sign.hocon",
+				"match": "#.*"
+			}
+		]
+	},
+	"key-value": {
+		"patterns": [
+			{
+				"name": "keyword.other.key.hocon",
+				"match": "^\\s*(\"?[\\w.-]+\"?)\\s*(?=(=|:|\\{))"
+			},
+			{
+				"name": "punctuation.separator.key-value.hocon",
+				"match": "(=|:)\\s*(?=\\S)"
+			},
+			{
+				"name": "punctuation.separator.key-value.omitted.hocon",
+				"match": "(?<=\\w)\\s*(?=\\{)"
+			},
+			{
+				"include": "#strings"
+			},
+			{
+				"name": "string.unquoted.hocon",
+				"match": "\\b[a-zA-Z_][\\w.-]*\\b"
+			}
+		]
+	},
+	"objects": {
+		"patterns": [
+			{
+				"name": "punctuation.definition.object.begin.hocon",
+				"match": "\\{"
+			},
+			{
+				"name": "punctuation.definition.object.end.hocon",
+				"match": "\\}"
+			},
+			{
+				"name": "meta.object.hocon",
+				"begin": "\\{",
+				"end": "\\}",
+				"patterns": [
+					{
+						"include": "#key-value"
+					},
+					{
+						"include": "#numbers"
+					},
+					{
+						"include": "#booleans"
+					},
+					{
+						"include": "#strings"
+					},
+					{
+						"include": "#multi-line-strings"
+					},
+					{
+						"include": "#substitutions"
+					},
+					{
+						"include": "#includes"
+					}
+				]
+			}
+		]
+	},
+	"arrays": {
+		"patterns": [
+			{
+				"name": "punctuation.definition.array.begin.hocon",
+				"match": "\\["
+			},
+			{
+				"name": "punctuation.definition.array.end.hocon",
+				"match": "\\]"
+			},
+			{
+				"name": "meta.array.hocon",
+				"begin": "\\[",
+				"end": "\\]",
+				"patterns": [
+					{
+						"include": "#key-value"
+					},
+					{
+						"include": "#numbers"
+					},
+					{
+						"include": "#booleans"
+					},
+					{
+						"include": "#strings"
+					},
+					{
+						"include": "#multi-line-strings"
+					},
+					{
+						"include": "#substitutions"
+					},
+					{
+						"include": "#includes"
+					}
+				]
+			}
+		]
+	},
+	"booleans": {
+		"patterns": [
+			{
+				"name": "constant.language.boolean.true.hocon",
+				"match": "\\b(true|on|yes)\\b"
+			},
+			{
+				"name": "constant.language.boolean.false.hocon",
+				"match": "\\b(false|off|no)\\b"
+			}
+		]
+	},
+	"numbers": {
+		"patterns": [
+			{
+				"name": "constant.numeric.integer.hocon",
+				"match": "\\b\\d+\\b"
+			},
+			{
+				"name": "constant.numeric.float.hocon",
+				"match": "\\b\\d+\\.\\d+\\b"
+			}
+		]
+	},
+	"strings": {
+		"name": "string.quoted.double.hocon",
+		"begin": "\"",
+		"end": "\"",
+		"patterns": [
+			{
+				"name": "constant.character.escape.hocon",
+				"match": "\\\\."
+			}
+		]
+	},
+	"multi-line-strings": {
+		"patterns": [
+			{
+				"name": "string.quoted.triple.hocon",
+				"begin": "\"\"\"",
+				"end": "\"\"\"",
+				"patterns": [
+					{
+						"name": "constant.character.escape.hocon",
+						"match": "\\\\."
+					}
+				]
+			}
+		]
+	},
+	"substitutions": {
+		"patterns": [
+			{
+				"name": "variable.other.substitution.hocon",
+				"match": "\\$\\{\\??[\\w.-]+\\}"
+			}
+		]
+	},
+	"path-expressions": {
+		"patterns": [
+			{
+				"name": "variable.other.path-expression.hocon",
+				"match": "\\b([\\w.-]+)\\b(\\.[\\w.-]+)*"
+			}
+		]
+	},
+	"includes": {
+		"patterns": [
+			{
+				"name": "keyword.control.include.hocon",
+				"match": "\\binclude\\b"
+			},
+			{
+				"name": "meta.include.resource.hocon",
+				"match": "(?<=include\\s)(required\\()?(url|file|classpath)?\\(?\"[^\"]*\"\\)?\\)?",
+				"captures": {
+					"1": {
+						"name": "keyword.other.include.required.hocon"
+					},
+					"2": {
+						"name": "keyword.other.include.resource-type.hocon"
+					},
+					"3": {
+						"name": "string.quoted.include-resource.hocon"
+					}
+				}
+			}
+		]
+	},
+	"errors": {
+		"patterns": [
+			{
+				"name": "invalid.illegal.missing-separator.hocon",
+				"match": "\\b([\\w.-]+)\\s+\"[^\"]*\""
+			},
+			{
+				"name": "invalid.illegal.unbalanced-braces.hocon",
+				"match": "(?<!\\{)\\}"
+			},
+			{
+				"name": "invalid.illegal.comma.hocon",
+				"match": ",\\s*,|^\\s*,|,\\s*,\\s*$"
+			}
+		]
+	}
+}
 }
