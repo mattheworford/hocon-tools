@@ -17,9 +17,6 @@
       "include": "#substitutions"
     },
     {
-      "include": "#strings"
-    },
-    {
       "include": "#numbers"
     },
     {
@@ -27,6 +24,9 @@
     },
     {
       "include": "#null"
+    },
+    {
+      "include": "#strings"
     },
     {
       "include": "#arrays"
@@ -93,13 +93,7 @@
           "end": "(?=,|\\}|$)",
           "patterns": [
             {
-              "include": "#objects"
-            },
-            {
-              "include": "#arrays"
-            },
-            {
-              "include": "#strings"
+              "include": "#substitutions"
             },
             {
               "include": "#numbers"
@@ -111,7 +105,13 @@
               "include": "#null-value"
             },
             {
-              "include": "#substitutions"
+              "include": "#strings"
+            },
+            {
+              "include": "#objects"
+            },
+            {
+              "include": "#arrays"
             }
           ]
         }
