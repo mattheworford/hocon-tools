@@ -2,13 +2,14 @@
   "name": "hocon-tools",
   "displayName": "HOCON Tools",
   "description": "Tools for working with HOCON files",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "mattheworford",
   "pricing": "Free",
   "repository": "https://github.com/mattheworford/hocon-tools",
   "icon": "images/icon.png",
+  "license": "SEE LICENSE IN LICENSE",
   "galleryBanner": {
-    "color": "#C80000",
+    "color": "#9dc2b0",
     "theme": "dark"
   },
   "engines": {
@@ -17,7 +18,6 @@
   "categories": [
     "Programming Languages"
   ],
-  
   "contributes": {
     "languages": [
       {
