@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "publisher": "mattheworford",
   "pricing": "Free",
+  "repository": "https://github.com/mattheworford/hocon-tools",
   "engines": {
     "vscode": "^1.92.0"
   },
@@ -12,16 +13,26 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "hocon",
-      "aliases": ["HOCON", "hocon"],
-      "extensions": [".conf", ".hocon"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "hocon",
-      "scopeName": "source.hocon",
-      "path": "./syntaxes/hocon.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "hocon",
+        "aliases": [
+          "HOCON",
+          "hocon"
+        ],
+        "extensions": [
+          ".conf",
+          ".hocon"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "hocon",
+        "scopeName": "source.hocon",
+        "path": "./syntaxes/hocon.tmLanguage.json"
+      }
+    ]
   }
 }
