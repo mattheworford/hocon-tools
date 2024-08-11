@@ -3,6 +3,8 @@
   "displayName": "HOCON Tools",
   "description": "Tools for working with HOCON files",
   "version": "0.0.1",
+  "publisher": "mattheworford",
+  "pricing": "Free",
   "engines": {
     "vscode": "^1.92.0"
   },
@@ -13,7 +15,7 @@
     "languages": [{
       "id": "hocon",
       "aliases": ["HOCON", "hocon"],
-      "extensions": [".conf"],
+      "extensions": [".conf", ".hocon"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
