@@ -20,7 +20,7 @@ You can install this extension directly from the Visual Studio Code Marketplace:
 3. Search for "HOCON Syntax Highlighting".
 4. Click **Install** to add the extension to your editor.
 
-Alternatively, you can download the extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/).
+Alternatively, you can download the extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=mattheworford.hocon-tools).
 
 ## Usage
 
