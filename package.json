@@ -1,23 +1,37 @@
 {
   "name": "hocon-tools",
   "displayName": "HOCON Tools",
-  "description": "Tools for working with HOCON files",
   "version": "0.0.3",
   "publisher": "mattheworford",
-  "pricing": "Free",
-  "repository": "https://github.com/mattheworford/hocon-tools",
-  "icon": "images/icon.png",
-  "license": "SEE LICENSE IN LICENSE",
-  "galleryBanner": {
-    "color": "#9dc2b0",
-    "theme": "dark"
-  },
-  "engines": {
-    "vscode": "^1.92.0"
+  "description": "Tools for working with HOCON files",
+  "author": {
+    "name": "Matthew Orford"
   },
   "categories": [
     "Programming Languages"
   ],
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#9dc2b0",
+    "theme": "dark"
+  },
+  "pricing": "Free",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/mattheworford/hocon-tools/issues",
+    "email": "mattorford9@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattheworford/hocon-tools"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/mattheworford"
+  },
+  "homepage": "https://github.com/mattheworford/hocon-tools/blob/main/README.md",
   "contributes": {
     "languages": [
       {
