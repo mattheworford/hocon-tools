@@ -1,7 +1,7 @@
 {
   "name": "hocon-tools",
   "displayName": "HOCON Tools",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "mattheworford",
   "description": "Tools for working with HOCON files",
   "author": {
@@ -31,6 +31,13 @@
   "sponsor": {
     "url": "https://github.com/sponsors/mattheworford"
   },
+  "keywords": [
+    "hocon",
+    "config",
+    "configuration",
+    "syntax",
+    "colorize"
+  ],
   "homepage": "https://github.com/mattheworford/hocon-tools/blob/main/README.md",
   "contributes": {
     "languages": [
