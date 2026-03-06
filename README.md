@@ -26,6 +26,16 @@ Alternatively, you can download the extension from the [Visual Studio Code Marke
 
 Once the extension is installed, it will automatically recognize files with the `.conf` extension as HOCON files and apply syntax highlighting. You can also manually select "HOCON" as the language mode for any open file by clicking on the language mode indicator in the bottom-right corner of the editor.
 
+## Supported Features 
+
+✔ syntax highlighting
+✔ include statements
+✔ variable substitutions
+✔ triple-quoted strings
+✔ arrays and objects
+✔ unquoted keys
+✔ environment variable substitutions
+
 ## Example
 
 Here’s a sample HOCON file to see the syntax highlighting in action:

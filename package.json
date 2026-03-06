@@ -1,9 +1,9 @@
 {
   "name": "hocon-tools",
-  "displayName": "HOCON Tools",
-  "version": "0.0.5",
+  "displayName": "HOCON Syntax Highlighting (Typesafe Config)",
+  "version": "0.0.6",
   "publisher": "mattheworford",
-  "description": "Tools for working with HOCON files",
+  "description": "Syntax highlighting for HOCON (Typesafe Config) files used in Scala, Akka, and Spark projects.",
   "author": {
     "name": "Matthew Orford"
   },
@@ -33,10 +33,19 @@
   },
   "keywords": [
     "hocon",
+    "typesafe-config",
+    "lightbend",
+    "scala",
+    "akka",
+    "spark",
+    "kafka",
     "config",
     "configuration",
-    "syntax",
-    "colorize"
+    "syntax-highlighting",
+    "config-language",
+    "hcl",
+    "yaml",
+    "toml"
   ],
   "homepage": "https://github.com/mattheworford/hocon-tools/blob/main/README.md",
   "contributes": {
@@ -51,6 +60,12 @@
           ".conf",
           ".hocon"
         ],
+        "filenames": [
+          "application.conf",
+          "reference.conf",
+          "application.*.conf"
+        ],
+        "firstLine": "^\\s*\\{",
         "configuration": "./language-configuration.json"
       }
     ],
