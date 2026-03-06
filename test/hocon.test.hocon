@@ -1,0 +1,75 @@
+# SYNTAX TEST "source.hocon" "HOCON grammar tests"
+
+# Line comment with hash
+// comment.line.double-slash.hocon
+// Line comment with double slash
+
+/* Block comment */
+// ^ comment.block.hocon
+
+# Keys
+// <-- keyword.other.key.hocon
+simple-key = "value"
+// <-- keyword.other.key.hocon
+dotted.key.path = "value"
+// <-- keyword.other.key.hocon
+"quoted key with spaces" = "value"
+// <-- keyword.other.key.hocon
+path/with/slashes = "value"
+
+# Include statements
+// <-- keyword.control.include.hocon
+include "application.conf"
+// <-- keyword.control.include.hocon
+include required("application.conf")
+// <-- keyword.control.include.hocon
+include url("https://example.com/config")
+// <-- keyword.control.include.hocon
+include file("/etc/app.conf")
+// <-- keyword.control.include.hocon
+include classpath("reference.conf")
+
+# Substitutions
+// <-- variable.other.hocon
+foo = ${bar}
+// <-- variable.environment.hocon
+baz = ${?optional}
+
+# Strings
+// <-- string.quoted.double.hocon
+name = "double quoted"
+// <-- string.quoted.triple.hocon
+description = """triple quoted
+multiline string"""
+
+# Numbers
+// <-- constant.numeric.hocon
+port = 8080
+// <-- constant.numeric.hocon
+rate = 3.14
+// <-- constant.numeric.hocon
+sci = 1e10
+// <-- constant.numeric.hocon
+negative = -42
+
+# Booleans and null
+// <-- constant.language.hocon
+enabled = true
+// <-- constant.language.hocon
+disabled = false
+// <-- constant.language.hocon
+nothing = null
+
+# Nested objects
+akka {
+  actor {
+    provider = "cluster"
+  }
+}
+
+# Arrays
+hosts = [
+  "host1",
+  "host2",
+  "host3"
+]

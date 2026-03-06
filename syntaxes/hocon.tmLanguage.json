@@ -45,6 +45,14 @@
         {
           "match": "(#).*$\\n?",
           "name": "comment.line.number-sign.hocon"
+        },
+        {
+          "name": "comment.block.hocon",
+          "begin": "/\\*",
+          "end": "\\*/",
+          "captures": {
+            "0": { "name": "punctuation.definition.comment.hocon" }
+          }
         }
       ]
     },
@@ -86,7 +94,7 @@
       "patterns": [
         {
           "name": "meta.key-value.hocon",
-          "begin": "^\\s*(\"?[\\w.-]+\"?)\\s*(?=(=|:|\\{))",
+          "begin": "^\\s*(\"[^\"]*\"|[\\w.\\-/]+)\\s*(?=(=|:|\\{))",
           "beginCaptures": {
             "1": { "name": "keyword.other.key.hocon" }
           },
@@ -155,7 +163,7 @@
     },
     "numbers": {
       "name": "constant.numeric.hocon",
-      "match": "-?(0|[1-9]\\d*)(\\.\\d+)?([eE][+-]?\\d+)?"
+      "match": "(?<![\\w.])-?(0|[1-9]\\d*)(\\.\\d+)?([eE][+-]?\\d+)?(?![\\w.])"
     },
     "booleans": {
       "name": "constant.language.hocon",

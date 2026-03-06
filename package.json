@@ -1,7 +1,7 @@
 {
   "name": "hocon-tools",
   "displayName": "HOCON Syntax Highlighting (Typesafe Config)",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "publisher": "mattheworford",
   "description": "Syntax highlighting for HOCON (Typesafe Config) files used in Scala, Akka, and Spark projects.",
   "author": {
@@ -48,6 +48,9 @@
     "toml"
   ],
   "homepage": "https://github.com/mattheworford/hocon-tools/blob/main/README.md",
+  "devDependencies": {
+    "vscode-tmgrammar-test": "^0.1.3"
+  },
   "contributes": {
     "languages": [
       {
@@ -62,8 +65,7 @@
         ],
         "filenames": [
           "application.conf",
-          "reference.conf",
-          "application.*.conf"
+          "reference.conf"
         ],
         "firstLine": "^\\s*\\{",
         "configuration": "./language-configuration.json"

@@ -1,0 +1,27 @@
+# SYNTAX TEST "source.hocon" "Key tests"
+
+# Unquoted keys
+// <-- keyword.other.key.hocon
+simple = "value"
+// <-- keyword.other.key.hocon
+dotted.key = "value"
+// <-- keyword.other.key.hocon
+with-dash = "value"
+// <-- keyword.other.key.hocon
+with/slash = "value"
+
+# Quoted keys
+// <-- keyword.other.key.hocon
+"quoted" = "value"
+// <-- keyword.other.key.hocon
+"key with spaces" = "value"
+// <-- keyword.other.key.hocon
+"key/with/special.chars" = "value"
+
+# Key with object shorthand
+akka.actor.provider = "cluster"
+
+# Key with brace
+akka {
+  loglevel = "INFO"
+}

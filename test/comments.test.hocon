@@ -1,0 +1,18 @@
+# SYNTAX TEST "source.hocon" "Comment tests"
+
+// Line comment with double-slash
+// <-- comment.line.double-slash.hocon
+
+# Line comment with hash
+// <-- comment.line.number-sign.hocon
+
+/* Single-line block comment */
+// <-- comment.block.hocon
+
+/*
+  Multi-line
+  block comment
+*/
+// <-- comment.block.hocon
+
+key = "value" // trailing comment
