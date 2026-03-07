@@ -11,7 +11,16 @@ export function activate(context: vscode.ExtensionContext) {
         return;
       }
 
-      const text = editor.document.getText();
+      const text = editor.document.getText().replace(
+        /\$\{\??([a-zA-Z_][a-zA-Z0-9_.\-]*)\}/g,
+        (match, varName) => {
+          const value = process.env[varName];
+          if (value !== undefined) {
+            return JSON.stringify(value);
+          }
+          return match;
+        }
+      );
 
       let parsed: unknown;
       try {
@@ -56,7 +65,37 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  context.subscriptions.push(command);
+  const hoverProvider = vscode.languages.registerHoverProvider("hocon", {
+    provideHover(document, position) {
+      const range = document.getWordRangeAtPosition(
+        position,
+        /\$\{(\??)([a-zA-Z_][a-zA-Z0-9_.\-]*)}/
+      );
+      if (!range) {
+        return;
+      }
+
+      const match = document
+        .getText(range)
+        .match(/\$\{(\??)([a-zA-Z_][a-zA-Z0-9_.\-]*)}/);
+      if (!match) {
+        return;
+      }
+
+      const varName = match[2];
+      const value = process.env[varName];
+
+      const markdown = new vscode.MarkdownString();
+      markdown.appendMarkdown(`**Environment Variable:** \`${varName}\`\n\n`);
+      markdown.appendMarkdown(
+        `**Current Value:** \`${value !== undefined ? value : "undefined"}\``
+      );
+
+      return new vscode.Hover(markdown, range);
+    },
+  });
+
+  context.subscriptions.push(command, hoverProvider);
 }
 
 export function deactivate() {}
