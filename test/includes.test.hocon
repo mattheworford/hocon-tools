@@ -1,0 +1,27 @@
+// SYNTAX TEST "source.hocon" "Include tests"
+
+include "base.conf"
+// <------- keyword.control.include.hocon
+//      ^ - keyword.control.include.hocon
+//       ^^^^^^^^^^ string.quoted.double.include-resource.hocon
+
+include required("override.conf")
+// <------- keyword.control.include.hocon
+//      ^^^^^^^^ keyword.other.include.required.hocon
+
+include url("https://example.com/config.conf")
+// <------- keyword.control.include.hocon
+//      ^^^ keyword.other.include.resource-type.hocon
+
+include file("/etc/myapp.conf")
+// <------- keyword.control.include.hocon
+//      ^^^^ keyword.other.include.resource-type.hocon
+
+include classpath("reference.conf")
+// <------- keyword.control.include.hocon
+//      ^^^^^^^^^ keyword.other.include.resource-type.hocon
+
+include required(classpath("fallback.conf"))
+// <------- keyword.control.include.hocon
+//      ^^^^^^^^ keyword.other.include.required.hocon
+//               ^^^^^^^^^ keyword.other.include.resource-type.hocon

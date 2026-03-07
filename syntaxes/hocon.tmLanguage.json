@@ -67,13 +67,20 @@
           "end": "(?=,|\\}|$)",
           "patterns": [
             {
-              "name": "meta.include.resource.hocon",
-              "match": "(required\\()?\\s*(url|file|classpath)?\\s*\\(?(\"[^\"]*\")\\)?\\)?",
+              "match": "(required)\\s*\\(",
               "captures": {
-                "1": { "name": "keyword.other.include.required.hocon" },
-                "2": { "name": "keyword.other.include.resource-type.hocon" },
-                "3": { "name": "string.quoted.double.include-resource.hocon" }
+                "1": { "name": "keyword.other.include.required.hocon" }
               }
+            },
+            {
+              "match": "(url|file|classpath)\\s*\\(",
+              "captures": {
+                "1": { "name": "keyword.other.include.resource-type.hocon" }
+              }
+            },
+            {
+              "match": "\\)",
+              "name": "punctuation.paren.close.hocon"
             },
             {
               "name": "string.quoted.double.include-resource.hocon",
@@ -94,7 +101,7 @@
       "patterns": [
         {
           "name": "meta.key-value.hocon",
-          "begin": "^\\s*(\"[^\"]*\"|[\\w.\\-/]+)\\s*(?=(=|:|\\{))",
+          "begin": "^\\s*(\"[^\"]*\"|[\\w.\\-/]+)\\s*(?=(\\+=|=|:|\\{))",
           "beginCaptures": {
             "1": { "name": "keyword.other.key.hocon" }
           },

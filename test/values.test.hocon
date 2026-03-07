@@ -1,0 +1,34 @@
+// SYNTAX TEST "source.hocon" "Value tests"
+
+port = 8080
+//     ^^^^ constant.numeric.hocon
+
+rate = 3.14
+//     ^^^^ constant.numeric.hocon
+
+negative = -42
+//         ^^^ constant.numeric.hocon
+
+sci = 1e10
+//    ^^^^ constant.numeric.hocon
+
+enabled = true
+//        ^^^^ constant.language.hocon
+
+disabled = false
+//         ^^^^^ constant.language.hocon
+
+nothing = null
+//        ^^^^ constant.language.hocon
+
+name = "hello"
+//     ^^^^^^^ string.quoted.double.hocon
+
+escaped = "line\nnewline"
+//             ^^ constant.character.escape.hocon
+
+sub1 = ${foo.bar}
+//     ^^^^^^^^^^ variable.other.hocon
+
+sub2 = ${?optional}
+//     ^^^^^^^^^^^^^ variable.environment.hocon

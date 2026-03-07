@@ -1,0 +1,7 @@
+// SYNTAX TEST "source.hocon" "Append operator tests"
+
+list += "new-item"
+// <---- keyword.other.key.hocon
+
+akka.loggers += "akka.event.slf4j.Slf4jLogger"
+// <------------ keyword.other.key.hocon

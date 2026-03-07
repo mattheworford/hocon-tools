@@ -1,0 +1,14 @@
+// SYNTAX TEST "source.hocon" "Structure tests"
+
+akka {
+//   ^ meta.structure.dictionary.hocon
+  actor {
+    provider = "cluster"
+  }
+}
+
+hosts = [
+//      ^ meta.structure.array.hocon
+  "host1",
+  "host2"
+]
