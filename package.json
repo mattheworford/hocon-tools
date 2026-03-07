@@ -1,7 +1,7 @@
 {
   "name": "hocon-tools",
   "displayName": "HOCON Syntax Highlighting (Typesafe Config)",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "publisher": "mattheworford",
   "description": "Syntax highlighting for HOCON (Typesafe Config) files used in Scala, Akka, and Spark projects.",
   "author": {
@@ -16,9 +16,11 @@
     "theme": "dark"
   },
   "pricing": "Free",
+  "main": "./out/extension.js",
   "engines": {
     "vscode": "^1.92.0"
   },
+  "activationEvents": [],
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
     "url": "https://github.com/mattheworford/hocon-tools/issues",
@@ -48,7 +50,17 @@
     "toml"
   ],
   "homepage": "https://github.com/mattheworford/hocon-tools/blob/main/README.md",
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "dependencies": {
+    "hocon-parser": "^1.0.1"
+  },
   "devDependencies": {
+    "@types/vscode": "^1.92.0",
+    "typescript": "^5.4.0",
     "vscode-tmgrammar-test": "^0.1.3"
   },
   "contributes": {
@@ -69,6 +81,12 @@
         ],
         "firstLine": "^\\s*\\{",
         "configuration": "./language-configuration.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "hocon-tools.previewAsJson",
+        "title": "HOCON: Preview as JSON"
       }
     ],
     "grammars": [

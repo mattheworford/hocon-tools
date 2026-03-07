@@ -11,6 +11,8 @@ This extension provides syntax highlighting support for HOCON (Human-Optimized C
   - Support for HOCON-specific features like include statements.
   - Highlighting for valid and invalid syntax patterns.
 
+- **Preview as JSON**: Convert the current HOCON file to resolved JSON and view it in a side-by-side editor. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and run **HOCON: Preview as JSON**.
+
 ## Installation
 
 You can install this extension directly from the Visual Studio Code Marketplace:
@@ -35,6 +37,7 @@ Once the extension is installed, it will automatically recognize files with the 
 ✔ arrays and objects
 ✔ unquoted keys
 ✔ environment variable substitutions
+✔ preview as JSON
 
 ## Example
 
@@ -61,7 +64,8 @@ root {
 
 ## Limitations
 
-- Currently, this extension only supports syntax highlighting. Advanced features like code completion, validation, and formatting are not yet implemented.
+- Advanced features like code completion, validation, and formatting are not yet implemented.
+- The JSON preview does not support optional substitutions (`${?VAR}`).
 
 ## Contributing
 
