@@ -13,6 +13,12 @@ This extension provides syntax highlighting support for HOCON (Human-Optimized C
 
 - **Preview as JSON**: Convert the current HOCON file to resolved JSON and view it in a side-by-side editor. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and run **HOCON: Preview as JSON**.
 
+- **Go to Definition**: Navigate to key definitions from substitution references. Place your cursor on a substitution like `${app.defaults.timeout}` and use **Go to Definition** (`F12` / `Ctrl+Click`) to jump to where the key is declared. Supports top-level keys, dot-separated paths, and nested object keys.
+
+- **Hover Information**: Hover over substitutions to see contextual information:
+  - **HOCON key references** (e.g., `${app.defaults.timeout}`) display the resolved key path and its defined value.
+  - **Environment variable references** (e.g., `${HOME}`) display the variable name and its current value.
+
 ## Installation
 
 You can install this extension directly from the Visual Studio Code Marketplace:
@@ -28,7 +34,7 @@ Alternatively, you can download the extension from the [Visual Studio Code Marke
 
 Once the extension is installed, it will automatically recognize files with the `.conf` extension as HOCON files and apply syntax highlighting. You can also manually select "HOCON" as the language mode for any open file by clicking on the language mode indicator in the bottom-right corner of the editor.
 
-## Supported Features 
+## Supported Features
 
 ✔ syntax highlighting
 ✔ include statements
@@ -38,6 +44,8 @@ Once the extension is installed, it will automatically recognize files with the 
 ✔ unquoted keys
 ✔ environment variable substitutions
 ✔ preview as JSON
+✔ go to definition for substitutions
+✔ hover info for HOCON keys and environment variables
 
 ## Example
 
@@ -65,7 +73,6 @@ root {
 ## Limitations
 
 - Advanced features like code completion, validation, and formatting are not yet implemented.
-- The JSON preview does not support optional substitutions (`${?VAR}`).
 
 ## Contributing
 
